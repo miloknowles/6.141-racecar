@@ -1,0 +1,23 @@
+<library path="lib/libheadless_sim_rviz">
+  <class name="headless_sim_rviz/Drag"
+         type="headless_sim_rviz::DragTool"
+         base_class_type="rviz::Tool">
+    <description>
+      Tool for dragging the RACECAR model around.
+    </description>
+  </class>
+  <class name="headless_sim_rviz/Rotate"
+         type="headless_sim_rviz::RotateTool"
+         base_class_type="rviz::Tool">
+    <description>
+      Tool for rotating the RACECAR model.
+    </description>
+  </class>
+  <class name="headless_sim_rviz/Place"
+         type="headless_sim_rviz::PlaceTool"
+         base_class_type="rviz::Tool">
+    <description>
+      Tool for placing the RACECAR model.
+    </description>
+  </class>
+</library>

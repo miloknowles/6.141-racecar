@@ -1,0 +1,5 @@
+<launch>
+  <include file="$(find obstacle)/launch/base_server.launch" />
+  <include file="$(find obstacle)/launch/localize.launch" />
+  <!--<include file="$(find obstacle_avoidance)/launch/primitive_planner.launch" /> -->
+</launch>

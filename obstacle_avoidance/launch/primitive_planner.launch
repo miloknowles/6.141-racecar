@@ -1,0 +1,7 @@
+<!-- Loads params from cfg/params.yaml and launches the PrimitivePlanner node. -->
+
+<launch>
+	<rosparam command="load" file="$(find obstacle_avoidance)/cfg/params.yaml" ns="/obstacle_avoidance/" />
+	<node pkg="obstacle_avoidance" type="primitive_planner.py" name="primitive_planner" output="screen">
+	</node>
+</launch>

@@ -1,0 +1,51 @@
+# Topic and service configuration.
+node:
+  world_frame: "/map"
+  car_frame: "/base_link"
+  graph_topic: "/visualization/graph"
+  path_topic: "/waypoint_path"
+  drive_topic: "/vesc/ackermann_cmd_mux/input/navigation"
+
+  # If true, the static map is retrieved from a server.
+  map_service_available: true
+  map_service_name: "/static_map"
+
+  # Dynamic maps come from here.
+  map_topic: "/dilated_map"
+  map_debug_topic: "/debug_map"
+
+  goal_topic: "/clicked_point"
+  pose_topic: "/pf/viz/inferred_pose"
+
+  simulate_topic: "/visualization/simulate"
+  ref_input_topic: "/controller/ref_input"
+  odom_topic: "/vesc/odom"
+
+# Params used by the CLRRT planning run method.
+clrrt:
+  max_iters: 300
+  horizon_distance: 20.0
+  goal_sample_rate: 0.15
+  goal_pose_tolerance: 0.1
+  publish_graph: true
+  target_speed: 1.0 # Target speed that CLRRT passes to controller.
+  dilate_radius: 0.10
+
+  sampling:
+    mean_r: 15.0
+    sigma_r: 10.0
+    mean_t: 0.0
+    sigma_t: 0.785
+
+# Params used by the Pure Pursuit steering calculations
+# and forward simulation.
+pure_pursuit:
+  min_lookahead_dist: 0.2
+  max_lookahead_dist: 0.9
+  max_turn_angle: 0.5
+  max_slew_rate: 0.3294
+  wheelbase_length: 0.33
+  max_accel: 4.0
+  max_decel: -4.0
+  max_speed: 4.0
+  target_speed: 1.5 # Target speed when PurePursuit node is running on its own.

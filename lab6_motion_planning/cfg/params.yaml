@@ -1,0 +1,18 @@
+drive_topic: '/vesc/ackermann_cmd_mux/input/navigation'
+trajectory_topic: '/waypoint_path'
+localization_topic: '/pf/viz/inferred_pose'
+
+# Parameters for the Pure Pursuit Node
+pure_pursuit:
+  max_lookahead: 0.8 # 3.0
+  min_lookahead: 0.3 # 0.5
+  wheelbase: 0.33
+  angle_prop_gain: 0.8
+  angle_deriv_gain: 0.3
+  speed_gain: 2.0
+  percent_slip_speed: 0.7
+  percent_slip_speed_instantaneous: 1.0
+  max_speed: 4.0 # 5.0
+  min_speed: 2.0 # 1.5 # 2.5
+  max_turn: 0.5
+  zero_throttle_deceleration: -1.0

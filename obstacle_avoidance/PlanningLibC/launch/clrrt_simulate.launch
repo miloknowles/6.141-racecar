@@ -1,0 +1,5 @@
+<launch>
+	<include file="$(find obstacle_avoidance)/launch/simulate.launch" />
+	<include file="$(find obstacle_avoidance)/PlanningLibC/launch/republish_odom.launch" />
+	<!-- <include file="$(find racecar)/launch/teleop.launch" /> -->
+</launch>

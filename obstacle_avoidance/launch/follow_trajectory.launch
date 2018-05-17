@@ -1,0 +1,7 @@
+<launch>
+	<!-- Load additional parameters from cfg/params.yaml -->
+	<rosparam command="load" file="$(find obstacle_avoidance)/cfg/params.yaml" ns="/obstacle_avoidance" />
+	
+	<node pkg="obstacle_avoidance" type="pure_pursuit.py" name="pure_pursuit_controller" output="screen">
+	</node>
+</launch>

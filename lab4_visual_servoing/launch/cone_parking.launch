@@ -1,0 +1,5 @@
+<launch>
+  <rosparam command="load" file="$(find visual_servoing)/cfg/params.yaml" ns="/visual_servoing"/>
+  <node name="cone_detection_node" pkg="visual_servoing" type="cone_detector_node.py" output="screen"/>
+  <node name="vehicle_controller_node" pkg="visual_servoing" type="vehicle_controller_node.py" output="screen"/>
+</launch>

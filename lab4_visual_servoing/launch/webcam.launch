@@ -1,0 +1,4 @@
+<launch>
+  <rosparam command="load" file="$(find visual_servoing)/cfg/params.yaml" ns="/visual_servoing"/>
+  <node name="webcam_node" pkg="visual_servoing" type="webcam_node.py" output="screen"/>
+</launch>

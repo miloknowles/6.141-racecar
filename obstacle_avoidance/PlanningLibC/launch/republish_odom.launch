@@ -1,0 +1,4 @@
+<launch>
+	<rosparam command="load" file="$(find obstacle_avoidance)/PlanningLibC/cfg/clrrt_params.yaml" ns="republish_odom_node"/>
+  <node pkg="obstacle_avoidance" type="republish_odom_node" name="republish_odom_node" output="screen"/>
+</launch>

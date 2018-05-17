@@ -1,0 +1,38 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+
+  <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_imu" args="0.245 0.0 0.117    0.7071067811865475 0.7071067811865475 0.0 0.0 /base_link /base_imu_link" /> -->
+
+  <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_laser" args="0.285 0.0 0.127 0.0 0.0 0.0 1.0 /base_link /laser" /> -->
+
+  <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_base_footprint" args="0.0 0.0 0.0     0.0 0.0 0.0 1.0 /base_link /base_footprint" /> -->
+
+  <!-- todo: zed camera -->
+  <!-- todo: structure sensor -->
+
+
+
+
+  	<!-- publish a ton of static transforms to make the racecar model work -->
+	<node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_imu" args="0.245 0.0 0.117  0.7071067811865475 0.7071067811865475 0.0 0.0 /base_link /base_imu_link" />
+
+	<node pkg="tf2_ros" type="static_transform_publisher" name="base_link_imu_to_imu" args="0 0.0 0.0  0.0 0.0 0.0 1.0 /base_imu_link /imu" />
+
+	<node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_base_footprint" args="0.0 0.0 0.0  0.0 0.0 0.0 1.0 /base_link /base_footprint" />
+	<node pkg="tf2_ros" type="static_transform_publisher" name="robot_state_publisher1" args="0.0 0.0 0.05 0.0 0.0 0.0  1.0 /base_link /chassis" />
+	<node pkg="tf2_ros" type="static_transform_publisher" name="robot_state_publisher2" args="0.265 0.0 0.075  0.0 0.0 0.0  1.0 /chassis /laser" />
+	<node pkg="tf2_ros" type="static_transform_publisher" name="robot_state_publisher3" args="0.0 0.1 0.0  0.707106 0.0 0.0  0.707106 /chassis /left_rear_wheel" />
+	<node pkg="tf2_ros" type="static_transform_publisher" name="robot_state_publisher4" args="0.325 0.1 0.0  0.0 0.707106 0.0  0.707106 /chassis /left_steering_hinge" />
+	<node pkg="tf2_ros" type="static_transform_publisher" name="robot_state_publisher5" args="0.0 0.0 0.0  0.707106 0.0 0.0  0.707106 /left_steering_hinge /left_front_wheel" />
+	<node pkg="tf2_ros" type="static_transform_publisher" name="robot_state_publisher6" args="0.325 -0.1 0.0  0.0 0.707106 0.0  0.707106 /chassis /right_steering_hinge" />
+	<node pkg="tf2_ros" type="static_transform_publisher" name="robot_state_publisher7" args="0.0 -0.1 0.0   0.707106 0.0 0.0  0.707106 /chassis /right_rear_wheel" />
+	<node pkg="tf2_ros" type="static_transform_publisher" name="robot_state_publisher8" args="0.0 0.0 0.0  0.707106 0.0 0.0  0.707106 /right_steering_hinge /right_front_wheel" />
+	<node pkg="tf2_ros" type="static_transform_publisher" name="robot_state_publisher9" args="0.390 0 0.04  0.0 0.0 0.0  1.0 /chassis /zed_camera_link" />
+	<node pkg="tf2_ros" type="static_transform_publisher" name="robot_state_publisher10" args="0.0 0.0 0.0  0.0 0.0 0.0  1.0 /chassis /chassis_inertia" />
+	<node pkg="tf2_ros" type="static_transform_publisher" name="robot_state_publisher11" args="0.0 -0.06 0.0  0.0 0.0 0.0  1.0 /zed_camera_link /zed_camera_right_link" />
+	<node pkg="tf2_ros" type="static_transform_publisher" name="robot_state_publisher12" args="0.0 0.06 0.0  0.0 0.0 0.0  1.0 /zed_camera_link /camera_link" />
+
+	<!-- load the STL files for the RACECAR -->
+   <!--  <param name="robot_description" command="$(find xacro)/xacro '$(find racecar_description)/urdf/racecar.xacro'" /> -->
+
+</launch>

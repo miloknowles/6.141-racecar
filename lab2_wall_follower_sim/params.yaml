@@ -1,0 +1,5 @@
+scan_topic: "/scan"
+drive_topic: "/vesc/ackermann_cmd_mux/input/navigation"
+side: -1
+velocity: 15.0
+desired_distance: 1.

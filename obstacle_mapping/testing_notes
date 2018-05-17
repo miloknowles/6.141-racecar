@@ -1,0 +1,14 @@
+To start:
+ - roslaunch obstacle localize.launch
+    start the localization node, it will get a map as soon as a map server is
+    launched
+ - roslaunch obstacle base_server.launch
+    this will create a map server that serves the empty base map to the
+    localizer
+- roslaunch obstacle simulate.launch
+    this starts the simulation and overrides the empty map server with an
+    obstacle filled map server, so that the laser scans will show obstacles
+    that the localizer is unaware of
+
+in real life we would have to change the line in the simulate file that
+launches the test obstacle map to load the empty map instead

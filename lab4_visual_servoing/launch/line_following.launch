@@ -1,0 +1,4 @@
+<launch>
+  <rosparam command="load" file="$(find visual_servoing)/cfg/params.yaml" ns="/visual_servoing"/>
+  <node name="line_follower_node" pkg="visual_servoing" type="line_follower_node" output="screen"/>
+</launch>

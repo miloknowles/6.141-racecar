@@ -1,0 +1,17 @@
+# map_base_path: "/home/racecar/racecar_ws/src/obstacle/maps/bikerack_base.png"
+map_base_path: /home/milo/mit/ros/racecar_ws/src/obstacle_mapping/maps/bikerack_base.png
+local_map_xlim: [-10, 10]
+local_map_ylim: [-10, 10]
+occupancy_inc_per_scan: 60
+occupancy_decay_per_scan: 40
+dilation_radius_meters: 0.32
+local_map_resolution: 0.25
+
+# Set this to true for LOCAL mapping (used by CLRRT and the local primitive planner).
+# The original primitive planner relies on the dynamic map callback, so this should
+# be false when using that.
+use_local_map: false
+
+# Controls which parts of the scan are ignored.
+max_range_meters: 9.9
+min_range_meters: 0.2

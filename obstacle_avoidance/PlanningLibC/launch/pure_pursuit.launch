@@ -1,0 +1,4 @@
+<launch>
+	<rosparam command="load" file="$(find obstacle_avoidance)/PlanningLibC/cfg/clrrt_params.yaml" ns="pure_pursuit_node"/>
+  <node pkg="obstacle_avoidance" type="pure_pursuit_node" name="pure_pursuit_node" output="screen"/>
+</launch>

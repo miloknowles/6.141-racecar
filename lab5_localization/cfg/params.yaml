@@ -1,0 +1,15 @@
+# Parameters for the MCL node.
+
+motion_model:
+  sigma: [0.3, 0.3, 0.03]
+
+sensor_model:
+
+  # Prior probabilities on different laser scan events.
+  probability_of_known_obstacle: 0.80
+  probability_of_short_measurement: 0.1
+  probability_of_missed_measurement: 0.01
+  probability_of_random_measurement: 0.09
+
+  # Used for the gaussian distribution around known obstacles.
+  known_obstacle_standard_deviation: 0.4

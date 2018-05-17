@@ -1,0 +1,4 @@
+<launch>
+    <arg name="map" default="$(find obstacle)/maps/bikerack_obstacle.map.yaml"/>
+    <node pkg="map_server" name="obstacle_map_server" type="map_server" args="$(arg map)" />
+</launch>

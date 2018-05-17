@@ -1,0 +1,30 @@
+scan_topic: "/scan"
+drive_topic: "/vesc/ackermann_cmd_mux/input/navigation"
+rgb_topic: "/zed/rgb/image_rect_color"
+debug_img_topic: "/debug/cone_image"
+cone_pose_topic: "/cone/pose"
+camera_info_topic: "/zed/rgb/camera_info"
+cone_height_at_1meter: 168 # Cone height in pixels at a distance of 1meter.
+desired_distance: 0.5 # Desired parking distance from the cone.
+
+current_test: "cone_park" # which test is being run, options = [cone_park, line_follow]
+
+# Parameters for the line follower node.
+line_follower:
+  rgb_topic: "/zed/rgb/image_rect_color"
+  path_topic: "/line_follower/path" # Publishes a trajectory of waypoint poses.
+  waypoint_topic: "/line_follower/waypoint" # Publishes a single waypoint pose.
+  lookahead_distance: 1.0 # Distance (meters) for the car to look ahead when line following.
+  blur_kernel_size: 5 # Kernel size for a blur that is applied before edge extraction.
+  canny_threshold_low: 50 # Threshold for continuing edges.
+  canny_threshold_high: 150 # Threshold for starting edges.
+  min_hsv: [180, 178, 204] # Lower bound for blue tape.
+  max_hsv: [250, 255, 255] # Upper bound for blue tape.
+  camera_height: 0.1778 # Height of the camera from the ground (meters).
+  num_waypoints: 20 # The number of waypoints to grab from the path.
+
+# The K matrix from the camera (hardcoded this from the zed/rgb/camera_info messages).
+camera_intrinsics: [676.427978515625, 0.0, 619.3900146484375, 0.0, 676.427978515625, 331.0867004394531, 0.0, 0.0, 1.0]
+
+# A transform that maps RDF frame to FLU frame.
+tf_camera_robot: [0, 0, 1, -1, 0, 0, 0, -1, 0]

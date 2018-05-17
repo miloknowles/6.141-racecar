@@ -1,0 +1,21 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+
+  <!-- Optionally launch in GDB, for debugging -->
+  <arg name="debug" default="false" />
+  <arg if="$(arg debug)" name="launch_prefix" value="xterm -e gdb --args" />
+  <arg unless="$(arg debug)" name="launch_prefix" value="" />
+
+  <arg name="vesc_config" default="$(find racecar)/config/racecar-v2/vesc.yaml" />
+  <arg name="joy_config" default="$(find racecar)/config/racecar-v2/joy_teleop.yaml" />
+  
+  <rosparam file="$(arg vesc_config)" command="load" />
+  <rosparam file="$(arg joy_config)" command="load" />
+
+  <node pkg="joy" type="joy_node" name="joy_node" />
+
+  <!-- VESC to Odom node -->
+  <node pkg="direct_drive" type="direct_drive_node" name="direct_drive_node" output="screen" >
+  </node>
+
+</launch>

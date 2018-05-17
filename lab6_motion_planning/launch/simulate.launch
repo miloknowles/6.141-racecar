@@ -1,0 +1,70 @@
+<launch>
+
+	<include file="$(find lab6)/launch/map_server.launch" />
+
+  <!-- get racecar model -->
+  <include file="$(find headless_simulator)/launch/racecar_model.launch" />
+
+	<node pkg="headless_simulator" type="simulate.py" name="headless_simulator" output="screen">
+		<!-- Simulation parameters -->
+		<param name="simulation_rate" value="120"/>
+		<!-- options: ackermann, empirical, [physics] -->
+		<!-- <param name="motion_model" value="empirical"/> -->
+		<param name="motion_model" value="ackermann"/>
+
+		<!-- m/s^2 centripetal accel bounds (limits turning rate) -->
+		<param name="max_centripetal_accel" value="3.5"/>
+		<!-- m/s^2 straight line accel bounds -->
+		<param name="max_linear_accel" value="2.5"/>
+
+		<param name="detect_collision" value="1"/>
+		<param name="bounce_mode" value="0"/>
+		<param name="cspace_thetas" value="16"/>
+		<!-- whether or not to publish transformation frame to control wheel angle on the RACECAR model in RViz -->
+		<param name="actuate_model" value="1"/>
+		<!-- whether or not to listen for drag/rotate commands from RViz tools -->
+		<param name="listen_tools" value="1"/>
+
+		<!-- This param indicates which topic to listen to for control -->
+		<param name="servo_topic" value="/vesc/commands/servo/position"/>
+		<param name="motor_topic" value="/vesc/commands/motor/speed"/>
+
+		<!-- x,y,theta -->
+		<param name="start_state" value="71,98,0"/>
+
+		<!-- these params are for the laser scanner -->
+		<param name="simulate_laser" value="1"/>
+		<param name="laser_topic" value="/scan"/>
+		<param name="laser_rays" value="1081"/>
+		<param name="laser_min_angle" value="-2.35619449"/>
+		<param name="laser_max_angle" value="2.35619449"/>
+		<param name="laser_max_range" value="10"/>
+		<param name="laser_frame" value="/laser"/>
+		<param name="laser_rate" value="40"/>
+		<param name="laser_range_method" value="bl"/>
+
+		<!-- these params are for the odometer -->
+		<param name="simulate_odom" value="1"/>
+		<param name="odom_noise" value="0"/>
+		<param name="odom_rate" value="40"/>
+		<param name="odom_topic" value="/vesc/odom"/>
+		<param name="odom_frame" value="/map"/>
+
+		<!-- these params are for the IMU -->
+		<param name="simulate_imu" value="1"/>
+		<param name="imu_noise" value="0"/>
+		<param name="imu_rate" value="100"/>
+		<param name="imu_topic" value="/vesc/imu"/>
+		<param name="imu_frame" value="/base_link"/>
+
+		<!-- transformation frame params -->
+		<param name="publish_tf" value="1"/>
+		<param name="tf_rate" value="40"/>
+		<param name="tf_from" value="/map"/>
+		<!-- <param name="tf_to" value="/laser"/> -->
+		<param name="tf_to" value="/base_link"/>
+
+		<!-- debug -->
+		<param name="diagnostic_rate" value="0.5"/>
+	</node>
+</launch>

@@ -1,0 +1,13 @@
+<launch>
+	<!-- Load additional parameters from cfg/params.yaml -->
+	<rosparam command="load" file="$(find obstacle_avoidance)/cfg/params.yaml" ns="/motion_planning/" />
+
+	<arg name="spin" default="0"/>
+	<arg name="trajectory" default="$(find obstacle_avoidance)/trajectories/obstacles_full.traj"/>
+	<node pkg="obstacle_avoidance" type="trajectory_loader.py" name="Trajectory_loader" output="screen">
+		<param name="trajectory" value="$(arg trajectory)"/>
+		<param name="publish" value="1"/>
+		<param name="topic" value="/clrrt/path"/>
+		<param name="spin" value="$(arg spin)"/>
+	</node>
+</launch>

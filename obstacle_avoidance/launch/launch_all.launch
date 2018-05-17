@@ -1,0 +1,8 @@
+<launch>
+    <include file="$(find obstacle_avoidance)/launch/simulate.launch" />
+    <include file="$(find obstacle_avoidance)/launch/waypoint_control.launch" />
+    <include file="$(find obstacle_avoidance)/launch/follow_trajectory.launch" />
+    <include file="$(find ta_lab5)/launch/localize.launch" />
+    <include file="$(find safety_controller)/launch/safety_drive.launch" />
+    <!-- <include file="$(find headless_simulator)/launch/teleop.launch" /> -->
+</launch>

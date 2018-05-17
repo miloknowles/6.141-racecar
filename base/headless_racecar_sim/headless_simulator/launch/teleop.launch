@@ -1,0 +1,4 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+   <include file="$(find racecar)/launch/teleop.launch" />
+</launch>

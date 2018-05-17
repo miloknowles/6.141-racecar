@@ -1,0 +1,7 @@
+<launch>
+	<!-- Load additional parameters from cfg/params.yaml -->
+	<rosparam command="load" file="$(find obstacle_avoidance)/cfg/params.yaml" ns="/motion_planning/" />
+	
+	<node pkg="obstacle_avoidance" type="path_planner.py" name="Trajectory_search" output="screen">
+	</node>
+</launch>

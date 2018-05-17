@@ -1,0 +1,11 @@
+<launch>
+	<arg name="odom_topic" default="/pf/pose/odom"/>
+
+	<!-- Load additional parameters from cfg/params.yaml -->
+	<rosparam command="load" file="$(find lab6)/cfg/params.yaml" ns="/motion_planning/" />
+	
+	<node pkg="lab6" type="pure_pursuit.py" name="Trajectory_follower" output="screen">
+		<param name="odom_topic" value="$(arg odom_topic)"/>
+	</node>
+	
+</launch>

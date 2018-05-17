@@ -1,0 +1,37 @@
+# Topics that many nodes may need to know about.
+drive_topic: '/vesc/ackermann_cmd_mux/input/navigation'
+trajectory_topic: '/waypoint_path'
+localization_topic: '/pf/viz/inferred_pose'
+graph_viz_topic: '/visualization/graph'
+path_viz_topic: '/visualization/path'
+goal_line_viz_topic: '/visualization/goal_line'
+local_map_topic: '/local_map'
+dilated_map_topic: '/dilated_map'
+
+primitive_planner:
+  # Turn_Primitive static params.
+  goal_x: -37.0
+  time_step: 0.05
+  total_time: 0.6
+  max_velocity: 3.5
+
+  # Primitive_Planner static params.
+  max_turn_to_divide: 0.20 # pi/12
+  num_turn_divisions: 11 # 11 # must be odd.
+  max_turn_possible: 0.50
+  max_turn_total_time: 0.3 # Do the max turn for less time
+  turning_radius: 3.0 # Used for dubins.
+  sampling_rate: 0.01 # Used for dubins.
+
+# Parameters for the Pure Pursuit Node
+pure_pursuit:
+  max_lookahead: 2.5
+  min_lookahead: 0.5
+  wheelbase: 0.33
+  angle_prop_gain: 0.8
+  angle_deriv_gain: 0.3
+  speed_gain: 2.0
+  percent_slip_speed: 0.70
+  percent_slip_speed_instantaneous: 1.0
+  max_speed: 4.0
+  zero_throttle_deceleration: -2.0

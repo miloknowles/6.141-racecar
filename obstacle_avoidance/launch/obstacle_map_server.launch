@@ -1,0 +1,4 @@
+<launch>
+  <arg name="map" default="$(find obstacle_avoidance)/maps/obstacle_map.yaml"/>
+  <node pkg="map_server" name="map_server" type="map_server" args="$(arg map)" />
+</launch>

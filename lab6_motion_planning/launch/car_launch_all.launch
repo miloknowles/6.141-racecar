@@ -1,0 +1,9 @@
+<!-- This runs path planning, localization, and pure pursuit control on the car. -->
+<!-- You also need to run teleop to get the ackerman control topics. -->
+
+<launch>
+    <include file="$(find lab6)/launch/map_server.launch" />
+    <!-- <include file="$(find lab6)/launch/waypoint_control.launch" /> -->
+    <!-- <include file="$(find lab6)/launch/follow_trajectory.launch" /> -->
+    <include file="$(find ta_lab5)/launch/localize.launch" />
+</launch>
